@@ -1,0 +1,15 @@
+<div class="results-block">
+    <%= render 'layouts/messages' %>
+</div>
+
+<% if @friend %>
+<div class="card card-header results-block">
+    <strong>Prénom: </strong><%= @friend.first_name %>
+    <strong>Nom: </strong><%= @friend.last_name %>
+    <% if current_user.not_friend_with?(@friend.id) %>
+    <%= link_to 'Follow user', friendships_path(friend: @friend), class: "btn btn-xs btn-success", method: :post %>
+    <% else %>
+    <span class="badge bg-secondary">Vous êtes amis</span>
+    <% end %>
+</div>
+<% end %>
