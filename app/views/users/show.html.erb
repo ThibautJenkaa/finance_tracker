@@ -1,0 +1,16 @@
+<% if @user %>
+<div class="card card-header results-block">
+    <p>Profil de <%= @user.first_name %> <%= @user.last_name %></p>
+    <% if current_user.not_friend_with?(@user.id) %>
+    <%= link_to 'Follow user', friendships_path(friend: @user), class: "btn btn-xs btn-success", method: :post %>
+    <% else %>
+    <span class="badge bg-secondary">Vous êtes amis</span>
+    <% end %>
+</div>
+
+<% if !@tracked_stocks.empty? %>
+    <%= render 'stocks/list' %>
+<% else %>
+    <p class="no-stocks-user">Cet utilisateur ne traque aucune action</p>
+<% end %>
+<% end %>

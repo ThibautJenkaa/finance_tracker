@@ -14,7 +14,7 @@
       <td><%= friend.first_name %></td>
       <td><%= friend.last_name %></td>
       <td><%= link_to "Stop following", friendships_path(friend), method: :delete, data: { confirm: "Etes vous sur de vouloir supprimer '#{friend.first_name} #{friend.last_name}' de vos amis' ?" },
-              class: 'btn btn-small btn-warning' %></td>
+              class: 'btn btn-small btn-warning' %><%= link_to 'View profile', user_path(friend), class: "btn btn-xs btn-success m-2" %></td>
     </tr>
   <% end %>
   </tbody>

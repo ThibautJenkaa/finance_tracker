@@ -11,5 +11,6 @@
     <% else %>
     <span class="badge bg-secondary">Vous êtes amis</span>
     <% end %>
+    <%= link_to 'View profile', user_path(friend), class: "btn btn-xs btn-success" %>
 </div>
 <% end %>
